@@ -1,6 +1,6 @@
 <template>
 
-  <a :href="linkhref">
+  <a v-on:click="fetchFullContent(pk)" :href="linkhref">
     <div class="content-card-container">
       <div class="content-icon">
         <img src="./content-icons/video.svg">
@@ -24,7 +24,11 @@
       'linkhref',
       'kind',
       'progress',
+      'pk',
     ],
+    vuex: {
+      actions: require('../actions'),
+    },
   };
 
 </script>
