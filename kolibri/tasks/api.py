@@ -149,7 +149,6 @@ def _task_to_response(task_instance, task_type=None, task_id=None):
     Converts a Task object to a dict with the attributes that the frontend expects.
     """
 
-
     if not task_instance:
         return {
             "type": task_type,
