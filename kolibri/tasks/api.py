@@ -4,7 +4,7 @@ import requests
 from django.core.management import call_command
 from django.http import Http404
 from django.utils.translation import ugettext as _
-from django_q.models import Task, OrmQ
+from django_q.models import OrmQ, Task
 from django_q.tasks import async
 from kolibri.content.models import ChannelMetadataCache
 from kolibri.content.utils.channels import get_mounted_drives_with_channel_info
