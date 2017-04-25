@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'kolibri.content',
     'kolibri.logger',
     'kolibri.tasks.apps.KolibriTasksConfig',
-    'django_q',
+    # 'django_q',
     'kolibri.core.webpack',
     'kolibri.core.discovery',
     'rest_framework',
@@ -122,7 +122,7 @@ DATABASES = {
 }
 
 # Enable dynamic routing for content databases
-DATABASE_ROUTERS = ['django_q.router.ORMBrokerRouter',
+DATABASE_ROUTERS = [
                     # note: the content db router seems to override any other routers you put in here. Make sure it's the last.
                     'kolibri.content.content_db_router.ContentDBRouter']
 
@@ -188,7 +188,7 @@ Q_CLUSTER = {
     "orm": "ormq",
 
     # If this is true, make tasks synchronous (Windows can't handle multiprocessing very well)
-    "sync": platform.system() == "Windows",
+    "sync": True,
 }
 
 # Static files (CSS, JavaScript, Images)

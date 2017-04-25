@@ -13,17 +13,17 @@ import platform
 from django.core.management import call_command
 from django.http import Http404
 from django.utils.translation import ugettext as _
-from django_q.humanhash import uuid
+# from django_q.humanhash import uuid
 from kolibri.content.models import ChannelMetadataCache
 from kolibri.content.utils.channels import get_mounted_drives_with_channel_info
 from kolibri.content.utils.paths import get_content_database_file_url
 from rest_framework import serializers, viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
-from django_q.tasks import async
-from django_q.models import Task, OrmQ
+# from django_q.tasks import async
+# from django_q.models import Task, OrmQ
 
-from multiprocessing import Process
+# from multiprocessing import Process
 
 from .permissions import IsDeviceOwnerOnly
 

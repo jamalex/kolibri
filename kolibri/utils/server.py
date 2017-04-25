@@ -1,5 +1,5 @@
 import atexit
-import multiprocessing
+# import multiprocessing
 import os
 import platform
 
@@ -11,14 +11,15 @@ from kolibri.content.utils import paths
 
 
 def start_background_workers():
-    p = multiprocessing.Process(target=call_command, args=("qcluster", ))
+    # p = multiprocessing.Process(target=call_command, args=("qcluster", ))
 
     # note: atexit normally only runs when python exits normally, aka doesn't
     # exit through a signal. However, this function gets run because cherrypy
     # catches all the various signals, and runs the atexit callbacks.
-    atexit.register(p.terminate)
+    # atexit.register(p.terminate)
 
-    p.start()
+    # p.start()
+    pass
 
 
 def start(port=None):

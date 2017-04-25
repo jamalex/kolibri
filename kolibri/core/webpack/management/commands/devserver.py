@@ -2,7 +2,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import atexit
 import logging
-import multiprocessing
+# import multiprocessing
 import os
 import platform
 import subprocess
@@ -176,17 +176,19 @@ class Command(RunserverCommand):
 
     def start_qcluster(self):
 
-        logger.info('Starting qcluster process from Django runserver command')
+        pass
 
-        self.qcluster_process = multiprocessing.Process(target=call_command, args=("qcluster",))
+        # logger.info('Starting qcluster process from Django runserver command')
 
-        self.qcluster_process.start()
+        # self.qcluster_process = multiprocessing.Process(target=call_command, args=("qcluster",))
 
-        logger.info(
-            'Django Runserver command has spawned a qcluster process on pid {0}'.format(
-                self.qcluster_process.pid))
+        # self.qcluster_process.start()
 
-        self.qcluster_process.join()
+        # logger.info(
+        #     'Django Runserver command has spawned a qcluster process on pid {0}'.format(
+        #         self.qcluster_process.pid))
 
-        if self.qcluster_process.exitcode != 0 and not self.qcluster_cleanup_closing:
-            logger.error("qcluster process exited unexpectedly.")
+        # self.qcluster_process.join()
+
+        # if self.qcluster_process.exitcode != 0 and not self.qcluster_cleanup_closing:
+        #     logger.error("qcluster process exited unexpectedly.")
