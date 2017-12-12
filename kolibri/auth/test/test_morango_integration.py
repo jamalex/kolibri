@@ -2,6 +2,7 @@
 Tests related specifically to integration with Morango.
 """
 import os
+import sys
 import unittest
 
 from django.test import TestCase
@@ -9,6 +10,8 @@ from morango.controller import MorangoProfileController
 from morango.models import InstanceIDModel, Store
 
 from ..models import Facility, FacilityDataset, FacilityUser
+
+from .sync_utils import multiple_kolibri_servers
 
 
 class FacilityDatasetCertificateTestCase(TestCase):
@@ -48,3 +51,11 @@ class DateTimeTZFieldTestCase(TestCase):
             self.controller.deserialize_from_store()
         except AttributeError as e:
             self.fail(e.message)
+
+
+@unittest.skipIf(sys.platform.startswith("win"), "can't run on Windows")
+class EcosystemTestCase(TestCase):
+
+    @multiple_kolibri_servers(4)
+    def test_the_thing(self, servers):
+        print "I FOUND SERVERS:", [s.db_alias for s in servers]
